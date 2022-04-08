@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <script
+         src="https://code.jquery.com/jquery-3.6.0.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $(`.icon-bar`).click(function(){
+                $(`ul`).toggleClass(`show`)
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>Love U</span>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Sevices</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+        <span class="icon-bar"><i class="fas fa-bars"></i></span>
+        <div class="book">
+            <a href="#" class="js-btn">BOOK</a>
+        </div>
+       
+
+    </header>
+
+    <!--modal book-->
+    <div class="modal js-modal">
+      <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close">X</div>
+        <div class="modal-content">your content</div>
+      </div>
+    </div>
+    
+    <script>
+        const btns = document.querySelectorAll('.js-btn')
+        const modal = document.querySelector('.js-modal')
+        const modalContainer = document.querySelector('.js-modal-container');
+        const modalClose = document.querySelector('.js-modal-close')
+
+        function showBook(){
+            modal.classList.add('open')
+        }
+        function hideBook(){
+            modal.classList.remove('open')
+        }
+
+        for(const btn of btns){
+            btn.addEventListener('click', showBook)
+        }
+        modalClose.addEventListener('click', hideBook)
+
+        modal.addEventListener('click', hideBook)
+
+        modalContainer.addEventListener('click', function(event){
+            event.stopPropagation()
+        })
+
+    </script>
+
+   
+</body>
+</html>
